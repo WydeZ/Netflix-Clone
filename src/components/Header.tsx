@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import instance from '../axios';
 import requests from '../request'
 
+interface HeaderProps {
+    setPopup:  React.Dispatch<React.SetStateAction<any>>
+}
 
-export const Header: React.FC = () => {
+export const Header: React.FC<HeaderProps> = ({ setPopup }) => {
     const [ movie, setMovie ] = useState<any>({})
 
     useEffect(() => {
@@ -31,11 +34,12 @@ export const Header: React.FC = () => {
                     <h3 className='banner_original-text'><span>NETFLIX</span> ORIGINAL</h3>
                     <h1 className='banner-title'>{movie.name}</h1>
                     <div className='banner-btns'>
-                        <button className='banner-play banner-btn'><i className="material-icons">play_arrow</i>Play</button>
+                        <button className='banner-play banner-btn' onClick={() => { setPopup(movie) }}><i className="material-icons">play_arrow</i>Play</button>
                         <button className='banner-mylist banner-btn'><i className="material-icons">add</i>My List</button>
                     </div>
-                    <p className='netflix-banner-overview'>{truncate(movie.overview, 150)}</p>
+                    <p className='banner-overview'>{truncate(movie.overview, 150)}</p>
                 </div>
+                <div className='banner_fade-bottom'></div>
             </header>
         );
 }

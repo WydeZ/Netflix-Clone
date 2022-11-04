@@ -7,7 +7,6 @@
 
 body {
   background-color: #111;
-  /* overflow: hidden */
 }
 
 .netflix {
@@ -243,8 +242,8 @@ body {
 .popup {
   box-shadow: 0 0 0 1000px rgba(0,0,0,.3);
   position: fixed;
-  max-width: 800px;
-  height: 400px;
+  max-width: 650px;
+  height: 500px;
   background-color: #242526;
   z-index: 500;
   border-radius: 5px;
@@ -267,7 +266,8 @@ body {
 }
 
 .popup_content {
-  padding: 40px;
+  padding-inline: 40px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   color: #fff;
